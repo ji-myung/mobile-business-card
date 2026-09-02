@@ -43,7 +43,7 @@ const PATHS = {
   copy: '<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
   cross: '<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/>',
   play: '<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5v7l6-3.5z"/>',
-  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  users: '<circle cx="12" cy="7.8" r="3.9"/><path d="M5.8 20.8a6.2 6.2 0 0 1 12.4 0"/><path d="M21 19.8c0-2.6-1.3-5-3.3-6.5a3.6 3.6 0 0 0-.3-6.1"/><path d="M3 19.8c0-2.6 1.3-5 3.3-6.5a3.6 3.6 0 0 1 .3-6.1"/>',
   gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>',
   pen: '<path d="M12 20h9"/><path d="M16.4 3.6a1 1 0 0 1 3 3L7.4 18.6a2 2 0 0 1-.9.5l-2.9.9a.5.5 0 0 1-.6-.6l.8-2.9a2 2 0 0 1 .5-.9z"/>',
   sparkles: '<path d="M12 3l1.9 5.6a2 2 0 0 0 1.3 1.3L20.8 12l-5.6 1.9a2 2 0 0 0-1.3 1.3L12 20.8l-1.9-5.6a2 2 0 0 0-1.3-1.3L3.2 12l5.6-1.9a2 2 0 0 0 1.3-1.3z"/>',
@@ -56,7 +56,7 @@ const PATHS = {
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/>',
   moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
   image: '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.6-4.6a2 2 0 0 0-2.8 0L3 21"/>',
-  stethoscope: '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
+  hospital: '<path d="M8.5 21V3.8a.8.8 0 0 1 .8-.8h5.4a.8.8 0 0 1 .8.8V21"/><path d="M8.5 9H3.3a.8.8 0 0 0-.8.8V21"/><path d="M15.5 9h5.2a.8.8 0 0 1 .8.8V21"/><path d="M1.5 21h21"/><path d="M12 5.2v2.6"/><path d="M10.7 6.5h2.6"/><circle cx="12" cy="11.6" r="1.5"/><path d="M10.4 21v-2.4a1.6 1.6 0 0 1 3.2 0V21"/><path d="M5.4 12.4h.01"/><path d="M5.4 15.6h.01"/><path d="M18.6 12.4h.01"/><path d="M18.6 15.6h.01"/>',
   arrow: '<path d="M7 17 17 7"/><path d="M9 7h8v8"/>',
 }
 
@@ -123,7 +123,7 @@ const actionBar = (t) => {
 }
 
 const SERVICES = [
-  ['stethoscope', '병원 마케팅'], ['play', '숏폼 컨텐츠'], ['users', '방송 출연자 협업'],
+  ['hospital', '병원 마케팅'], ['play', '숏폼 컨텐츠'], ['users', '방송 출연자 협업'],
   ['gift', '협찬'], ['pen', '블로그'], ['sparkles', '체험단'], ['news', '기자단'],
 ]
 const NAME = '강지명'
