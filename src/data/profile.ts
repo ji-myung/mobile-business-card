@@ -36,7 +36,7 @@ export const profile: Profile = {
   name: '강지명',
   title: 'Founder | Content Director',
   company: 'Corelink',
-  bio: '',
+  bio: '사람과 브랜드를 연결하고, 콘텐츠로 가치를 확장합니다.',
 
   phone: '010-3991-2579',
   email: 'corelink.mail@gmail.com',
