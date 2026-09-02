@@ -16,7 +16,6 @@ export interface Profile {
   name: string
   title: string
   company: string
-  tagline: string[]
   bio: string
   phone: string
   email: string
@@ -35,9 +34,8 @@ export interface Profile {
 /** ★ 명함 내용은 전부 여기서 온다. 화면·vCard·공유 문구가 이 값을 따라간다. */
 export const profile: Profile = {
   name: '강지명',
-  title: 'Founder & Content Director',
+  title: 'Founder | Content Director',
   company: 'Corelink',
-  tagline: ['PEOPLE', 'CONTENT', 'MARKETING'],
   bio: '',
 
   phone: '010-3991-2579',

@@ -4,9 +4,8 @@ import type { Profile } from '../src/data/profile'
 
 const base: Profile = {
   name: '강지명',
-  title: 'Founder & Content Director',
+  title: 'Founder | Content Director',
   company: 'Corelink',
-  tagline: ['PEOPLE', 'CONTENT', 'MARKETING'],
   bio: '소개글',
   phone: '010-3991-2579',
   email: 'corelink.mail@gmail.com',
@@ -44,7 +43,7 @@ describe('buildVCard', () => {
   it('회사와 직함을 넣는다', () => {
     const l = lines(base)
     expect(l).toContain('ORG:Corelink')
-    expect(l).toContain('TITLE:Founder & Content Director')
+    expect(l).toContain('TITLE:Founder | Content Director')
   })
 
   it('전화번호는 하이픈 없이 넣는다', () => {
