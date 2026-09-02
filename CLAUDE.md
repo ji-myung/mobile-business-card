@@ -37,3 +37,9 @@ npm run typecheck  # 타입 검사만
 
 - 디자인 시안: `externals/명함 디자인 시안_260902.png` (블랙 + 골드)
 - 전체 계획서: `docs/PLAN.md`
+
+## 목업
+
+`design/gen.mjs` 가 다크·라이트 아트보드를 **하나의 토큰 세트에서** 생성한다.
+색을 바꾸려면 `gen.mjs` 상단의 `THEMES` 를, 구조를 바꾸려면 `page()` 를 고치고 `node design/gen.mjs` 를 다시 돌린다.
+두 테마를 손으로 각각 고치지 않는다 — 어긋난다.
