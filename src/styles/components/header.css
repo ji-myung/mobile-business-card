@@ -1,0 +1,80 @@
+.c-header {
+  position: relative;
+  padding: calc(22px + env(safe-area-inset-top, 0px)) var(--space-6) 0;
+}
+
+.c-logo {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 300;
+  letter-spacing: var(--tracking-logo);
+  line-height: 1;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* E 를 대문자 높이에 맞춰 baseline 위에 세운다. 다른 글자와 세로 크기가 같아진다. */
+.c-logo__e {
+  display: inline;
+  vertical-align: baseline;
+  margin-right: var(--tracking-logo);
+  fill: var(--color-accent);
+}
+
+.c-header__toggle {
+  position: absolute;
+  top: calc(12px + env(safe-area-inset-top, 0px));
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 보이는 원은 22px. 누르는 영역은 .tap 이 44px 로 지킨다. */
+.c-header__toggle-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-accent);
+  transition: border-color var(--duration-base) var(--ease);
+}
+
+.c-header__toggle:hover .c-header__toggle-dot {
+  border-color: var(--color-border-strong);
+}
+
+.c-rule {
+  position: relative;
+  height: 1px;
+  margin: var(--space-4) 0 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-line-soft) 10%,
+    var(--color-line-strong) 50%,
+    var(--color-line-soft) 90%,
+    transparent
+  );
+}
+
+.c-rule__dot {
+  position: absolute;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-accent-glow);
+  box-shadow: 0 0 5px 1px var(--color-accent);
+  opacity: 0.75;
+}
+
+.c-rule__dot:nth-child(3) {
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 0 7px 1px var(--color-accent);
+}

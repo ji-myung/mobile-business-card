@@ -22,7 +22,9 @@
   "homepage": "https://github.com/ji-myung/mobile-business-card#readme",
   "devDependencies": {
     "@types/node": "^26.4.1",
+    "@types/qrcode": "^1.5.6",
     "jsdom": "^30.0.1",
+    "qrcode": "^1.5.4",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
     "vitest": "^4.1.11"

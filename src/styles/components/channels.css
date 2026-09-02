@@ -1,0 +1,27 @@
+.c-channels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.c-channels__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 46px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  transition: border-color var(--duration-fast) var(--ease), background var(--duration-fast) var(--ease);
+}
+
+.c-channels__item svg {
+  color: var(--color-accent);
+}
+
+.c-channels__item:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-accent-subtle);
+}

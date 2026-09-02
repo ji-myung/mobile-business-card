@@ -54,3 +54,7 @@
     border-right: 1px solid var(--color-border);
   }
 }
+
+.section__label--inset {
+  padding: 0 var(--space-6);
+}
