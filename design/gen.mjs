@@ -141,12 +141,16 @@ const label = (t, text, pad = '') => `
         <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.14em; color: ${t.textFaint}">${text}</span>
       </div>`
 
-const thumbRow = (t) => `
-      <div style="display: flex; gap: 12px; padding: 0 24px; overflow: hidden">
-${[1, 2, 3].map((n) => `        <div style="flex: 0 0 auto; width: 204px">
-          <div style="display: flex; align-items: center; justify-content: center; height: 115px; border-radius: 12px; border: 1px solid ${t.border}; background: linear-gradient(135deg, ${t.thumbFrom}, ${t.thumbTo})">${icon('image', 22, t.accent, 1.25)}</div>
-          <div style="margin: 9px 2px 0; font-size: 12.5px; color: ${t.textMuted}">[대표 작업 ${n}]</div>
-        </div>`).join('\n')}
+/* 포트폴리오: 카드 3장을 겹쳐 쌓는다. 세로로 3장 늘어놓으면 화면이 너무 길어진다. */
+const cardStack = (t) => `
+      <div style="position: relative; height: 172px; margin: 0 24px">
+        <div style="position: absolute; top: 22px; left: 28px; right: 28px; height: 140px; border-radius: 16px; border: 1px solid ${t.border}; background: ${t.surfaceAlt}"></div>
+        <div style="position: absolute; top: 11px; left: 14px; right: 14px; height: 140px; border-radius: 16px; border: 1px solid ${t.border}; background: ${t.surface}"></div>
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; border-radius: 16px; border: 1px solid ${t.borderStrong}; background: linear-gradient(135deg, ${t.thumbFrom}, ${t.thumbTo})">
+          ${icon('image', 24, t.accent, 1.25)}
+          <span style="font-size: 12.5px; color: ${t.textMuted}">[대표 작업 1]</span>
+        </div>
+        <span style="position: absolute; right: 6px; bottom: -4px; font-size: 11px; letter-spacing: 0.04em; color: ${t.textFaint}">+2건 &middot; 밀어서 보기</span>
       </div>`
 
 const shell = (t, height, inner) => `<!doctype html>
@@ -205,12 +209,13 @@ function pageA(t, h) {
       ${glowRule(t, '16px 0 0')}
     </header>
 
-    <section style="margin: 20px; padding: 22px 18px 20px; border: 1px solid ${t.borderStrong}; border-radius: 18px; background: ${t.surface}; box-shadow: ${t.cardShadow}">
+    <section style="margin: 20px 20px 26px; padding: 22px 18px 20px; border: 1px solid ${t.borderStrong}; border-radius: 18px; background: ${t.surface}; box-shadow: ${t.cardShadow}">
       <h1 style="margin: 0; font-size: 31px; font-weight: 600; letter-spacing: 0.02em; color: ${t.text}">${NAME}</h1>
       <p style="margin: 8px 0 0; font-family: ${MONO}; font-size: 11px; font-weight: 400; letter-spacing: 0.12em; color: ${t.accent}">${TITLE}</p>
       <span style="display: block; width: 30px; height: 1px; margin: 14px 0 0; background: ${t.accent}"></span>
+      <p style="margin: 15px 0 0; font-size: 13px; line-height: 1.7; color: ${t.textMuted}; text-wrap: pretty">${BIO}</p>
 
-      <div style="display: flex; align-items: stretch; gap: 16px; margin: 20px 0 0">
+      <div style="display: flex; align-items: stretch; gap: 16px; margin: 22px 0 0">
         <div style="display: flex; flex-direction: column; gap: 11px; flex: 1 1 auto">${svc}
         </div>
         <span style="width: 1px; background: linear-gradient(180deg, transparent, ${t.borderStrong} 15%, ${t.borderStrong} 85%, transparent)"></span>
@@ -224,8 +229,6 @@ function pageA(t, h) {
       <div style="display: flex; gap: 12px; margin: 13px 0 0">${contact('mail', '이메일', EMAIL)}</div>
     </section>
 
-    <p style="margin: 0 24px 26px; font-size: 13px; line-height: 1.7; color: ${t.textMuted}; text-wrap: pretty">${BIO}</p>
-
     <section style="padding: 0 24px 26px">
       ${label(t, '채널')}
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">${ghost('instagram', '인스타그램')}${ghost('youtube', '유튜브')}</div>
@@ -233,7 +236,7 @@ function pageA(t, h) {
 
     <section style="padding: 0 0 26px">
       ${label(t, '포트폴리오', 'padding: 0 24px')}
-${thumbRow(t)}
+${cardStack(t)}
     </section>
 
     <section style="padding: 0 24px 24px">
@@ -241,70 +244,6 @@ ${thumbRow(t)}
     </section>
 
     <footer style="padding: 0 24px 24px; text-align: center; font-size: 11px; letter-spacing: 0.05em; color: ${t.footer}">&copy; 2026 Corelink</footer>`)
-}
-
-/* ── B · 에디토리얼 ────────────────────────────────────────────
-   상자를 전부 걷어내고 타이포와 헤어라인만 남긴다.
-   서비스는 잡지 목차처럼 번호를 매긴 인덱스. */
-function pageB(t, h) {
-  const idx = SERVICES.map(([, n], i) => `
-        <div style="display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid ${t.border}">
-          <span style="font-family: ${MONO}; font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; color: ${t.accent}">${String(i + 1).padStart(2, '0')}</span>
-          <span style="font-size: 15px; letter-spacing: -0.01em; color: ${t.text}">${n}</span>
-        </div>`).join('')
-
-  const link = (n, i) => `
-        <div style="display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid ${t.border}">
-          <span style="display: flex; align-items: baseline; gap: 14px">
-            <span style="font-family: ${MONO}; font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; color: ${t.accent}">${String(i).padStart(2, '0')}</span>
-            <span style="font-size: 14px; color: ${t.text}">${n}</span>
-          </span>${icon('arrow', 15, t.textFaint, 1.4)}
-        </div>`
-
-  const work = (n) => `
-        <div style="display: flex; align-items: center; gap: 14px; padding: 11px 0; border-bottom: 1px solid ${t.border}">
-          <span style="font-family: ${MONO}; font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; color: ${t.accent}">${String(n).padStart(2, '0')}</span>
-          <div style="display: flex; align-items: center; justify-content: center; width: 62px; height: 38px; flex: 0 0 auto; border-radius: 4px; border: 1px solid ${t.border}; background: linear-gradient(135deg, ${t.thumbFrom}, ${t.thumbTo})">${icon('image', 15, t.accent, 1.25)}</div>
-          <span style="flex: 1 1 auto; font-size: 13px; color: ${t.textMuted}">[대표 작업 ${n}]</span>${icon('arrow', 15, t.textFaint, 1.4)}
-        </div>`
-
-  const head = (text) => `<div style="margin: 30px 0 4px; font-family: ${MONO}; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; color: ${t.textFaint}">${text}</div>`
-
-  return shell(t, h, `
-    <header style="position: relative; padding: 22px 26px 0">
-      ${logo(t, 17)}
-      ${toggle(t, 'top: 12px; right: 16px;')}
-      ${glowRule(t, '16px 0 0')}
-    </header>
-
-    <div style="padding: 0 26px">
-      <h1 style="margin: 34px 0 0; font-size: 47px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; color: ${t.text}">${NAME}</h1>
-      <p style="margin: 14px 0 0; font-family: ${MONO}; font-size: 11px; font-weight: 400; letter-spacing: 0.13em; color: ${t.accent}">${TITLE}</p>
-      <p style="margin: 20px 0 0; font-size: 15px; line-height: 1.65; color: ${t.textMuted}; text-wrap: pretty">${BIO}</p>
-
-      ${head('SERVICES')}
-      <div>${idx}</div>
-
-      ${head('CONTACT')}
-      <div style="padding: 16px 0 0">
-        <div style="font-family: ${MONO}; font-size: 26px; font-weight: 300; letter-spacing: 0.02em; color: ${t.text}">${PHONE}</div>
-        <span style="display: block; height: 1px; margin: 10px 0 14px; background: ${t.ruleStrong}"></span>
-        <div style="font-size: 14px; color: ${t.textMuted}">${EMAIL}</div>
-      </div>
-
-      ${head('CHANNELS')}
-      <div style="margin: 6px 0 0">${link('인스타그램', 1)}${link('유튜브', 2)}</div>
-
-      ${head('SELECTED WORK')}
-      <div style="margin: 6px 0 0">${work(1)}${work(2)}${work(3)}</div>
-
-      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin: 34px 0 0">
-        <div>${qrFramed(t, 84)}</div>
-        <div style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border: 1px solid ${t.borderStrong}; border-radius: 999px; font-size: 13px; font-weight: 500; color: ${t.text}">${icon('share', 16, t.accent)}<span>공유</span></div>
-      </div>
-
-      <footer style="padding: 30px 0 24px; font-size: 11px; letter-spacing: 0.05em; color: ${t.footer}">&copy; 2026 Corelink</footer>
-    </div>`)
 }
 
 /* ── C · 스포트라이트 ──────────────────────────────────────────
@@ -324,16 +263,6 @@ function pageC(t, h) {
           <span style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex: 0 0 auto; border-radius: 10px; background: ${t.subtle}">${icon('copy', 15, t.textFaint)}</span>
         </div>`
 
-  const stack = `
-        <div style="position: relative; height: 172px; margin: 0 24px">
-          <div style="position: absolute; top: 22px; left: 28px; right: 28px; height: 140px; border-radius: 16px; border: 1px solid ${t.border}; background: ${t.surfaceAlt}"></div>
-          <div style="position: absolute; top: 11px; left: 14px; right: 14px; height: 140px; border-radius: 16px; border: 1px solid ${t.border}; background: ${t.surface}"></div>
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; border-radius: 16px; border: 1px solid ${t.borderStrong}; background: linear-gradient(135deg, ${t.thumbFrom}, ${t.thumbTo})">
-            ${icon('image', 24, t.accent, 1.25)}
-            <span style="font-size: 12.5px; color: ${t.textMuted}">[대표 작업 1]</span>
-          </div>
-          <span style="position: absolute; right: 6px; bottom: -4px; font-size: 11px; letter-spacing: 0.04em; color: ${t.textFaint}">+2건 &middot; 밀어서 보기</span>
-        </div>`
 
   return shell(t, h, `
     <div style="position: relative; background: radial-gradient(115% 46% at 50% 0%, ${t.spot}, transparent 72%)">
@@ -360,7 +289,7 @@ function pageC(t, h) {
 
     <section style="padding: 0 0 28px">
       ${label(t, '포트폴리오', 'padding: 0 24px')}
-${stack}
+${cardStack(t)}
     </section>
 
     <section style="display: flex; align-items: center; gap: 14px; padding: 0 24px 28px">
@@ -383,10 +312,9 @@ const HEIGHTS = JSON.parse(process.env.MBC_HEIGHTS || '{}')
 const H = (k, fallback) => HEIGHTS[k] ?? fallback
 
 const OUT = [
-  { file: 'Main.dc.html', title: 'A · 명함면 (다크)', build: pageA, theme: 'dark', h: H('A', 1400) },
-  { file: 'DirectionB.dc.html', title: 'B · 에디토리얼 (다크)', build: pageB, theme: 'dark', h: H('B', 1600) },
-  { file: 'DirectionC.dc.html', title: 'C · 스포트라이트 (다크)', build: pageC, theme: 'dark', h: H('C', 1500) },
-  { file: 'Light.dc.html', title: 'A · 명함면 (라이트)', build: pageA, theme: 'light', h: H('A', 1400) },
+  { file: 'Main.dc.html', title: 'A · 명함면 (다크)', page: 'page-1', build: pageA, theme: 'dark', h: H('A', 1300) },
+  { file: 'Light.dc.html', title: 'A · 명함면 (라이트)', page: 'page-1', build: pageA, theme: 'light', h: H('A', 1300) },
+  { file: 'DirectionC.dc.html', title: 'C · 스포트라이트 (참고)', page: 'page-2', build: pageC, theme: 'dark', h: H('C', 1340) },
 ]
 
 for (const o of OUT) {
@@ -395,11 +323,18 @@ for (const o of OUT) {
 }
 
 writeFileSync(new URL('canvas.json', import.meta.url), JSON.stringify({
-  artboards: OUT.map((o, i) => ({ file: o.file, title: o.title, x: i * 510, y: 0, w: 390, h: o.h })),
+  pages: [
+    { id: 'page-1', name: '확정안 A · 명함면' },
+    { id: 'page-2', name: '참고 C · 스포트라이트' },
+  ],
+  artboards: OUT.map((o, i) => ({
+    file: o.file, title: o.title, page: o.page,
+    x: (o.page === 'page-1' ? i : 0) * 510, y: 0, w: 390, h: o.h,
+  })),
   annotations: [{
-    id: 'note-brief', x: 0, y: -190, w: 900,
-    text: '강지명 · Corelink 모바일 명함 — 구조가 서로 다른 시안 3개입니다.\n\nA 명함면: 종이 명함 뒷면을 화면 히어로로 그대로 옮겼습니다. 세로 골드 규칙, 좌측 서비스, 우측 QR.\nB 에디토리얼: 상자를 전부 걷어내고 타이포와 헤어라인만. 서비스는 잡지 목차처럼 01~07 인덱스.\nC 스포트라이트: 상단 골드 광원과 반투명 레이어. 서비스는 알약 모양으로 흐르고 포트폴리오는 겹친 카드.\n\n맨 오른쪽은 A안의 라이트 테마입니다. 대괄호 [ ]는 아직 값이 없어 자리만 잡아둔 곳입니다.',
+    id: 'note-brief', x: 0, y: -170, w: 900, page: 'page-1',
+    text: '강지명 · Corelink 모바일 명함 — 확정안 A(명함면)입니다.\n\n종이 명함 뒷면을 화면 히어로로 옮겼습니다. 세로 골드 규칙, 좌측 서비스, 우측 QR.\n한 줄 소개는 직함 바로 아래로, 포트폴리오는 C안의 겹친 카드 방식으로 바꿨습니다.\n\n왼쪽이 기본 다크, 오른쪽이 라이트입니다. 대괄호 [ ]는 아직 값이 없어 자리만 잡아둔 곳입니다.',
   }],
-  launch: { view: 'canvas' },
+  launch: { view: 'canvas', page: 'page-1' },
 }, null, 2) + '\n')
 console.log('wrote canvas.json')
