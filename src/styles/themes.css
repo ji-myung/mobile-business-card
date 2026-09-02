@@ -1,0 +1,61 @@
+/* 의미 토큰 — 컴포넌트가 참조하는 유일한 색 이름.
+   테마를 추가하려면 여기에 블록을 하나 더 만든다. */
+
+:root,
+:root[data-theme='dark'] {
+  --color-bg: var(--neutral-950);
+  --color-surface: var(--neutral-900);
+  --color-surface-alt: var(--neutral-920);
+  --color-text: #e8e8e8;
+  --color-text-muted: var(--neutral-400);
+  --color-text-faint: var(--neutral-450);
+  --color-text-footer: var(--neutral-500);
+
+  --color-accent: var(--gold-500);
+  --color-accent-strong: var(--gold-300);
+  --color-accent-glow: var(--gold-200);
+  --color-on-accent: var(--neutral-950);
+
+  --color-border: rgba(var(--gold-rgb-dark), 0.2);
+  --color-border-strong: rgba(var(--gold-rgb-dark), 0.34);
+  --color-line-soft: rgba(var(--gold-rgb-dark), 0.38);
+  --color-line-strong: rgba(var(--gold-rgb-dark), 0.9);
+  --color-accent-subtle: rgba(var(--gold-rgb-dark), 0.06);
+  --color-focus: var(--gold-300);
+
+  --color-bar-bg: rgba(11, 11, 11, 0.94);
+  --color-thumb-from: var(--neutral-880);
+  --color-thumb-to: var(--neutral-800);
+  --color-qr-panel: var(--neutral-100);
+
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+:root[data-theme='light'] {
+  --color-bg: var(--neutral-50);
+  --color-surface: var(--neutral-0);
+  --color-surface-alt: var(--neutral-0);
+  --color-text: var(--neutral-900);
+  --color-text-muted: var(--neutral-600);
+  --color-text-faint: var(--neutral-550);
+  --color-text-footer: var(--neutral-550);
+
+  --color-accent: var(--gold-800);
+  --color-accent-strong: var(--gold-900);
+  --color-accent-glow: var(--gold-700);
+  --color-on-accent: var(--neutral-0);
+
+  --color-border: rgba(var(--gold-rgb-light), 0.22);
+  --color-border-strong: rgba(var(--gold-rgb-light), 0.36);
+  --color-line-soft: rgba(var(--gold-rgb-light), 0.35);
+  --color-line-strong: rgba(var(--gold-rgb-light), 0.85);
+  --color-accent-subtle: rgba(var(--gold-rgb-light), 0.05);
+  --color-focus: var(--gold-900);
+
+  --color-bar-bg: rgba(247, 245, 240, 0.96);
+  --color-thumb-from: #f0ebe1;
+  --color-thumb-to: #e3d9c7;
+  --color-qr-panel: var(--neutral-0);
+
+  --shadow-card: 0 1px 2px rgba(20, 20, 20, 0.05);
+}

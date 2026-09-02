@@ -1,0 +1,80 @@
+/* 원시 토큰 — 팔레트와 스케일의 실제 값.
+   컴포넌트 CSS에서 직접 쓰지 않는다. themes.css 안에서만 소비한다. */
+
+:root {
+  /* 골드 — 시안(externals/명함 디자인 시안_260902.png)에서 추출 */
+  --gold-200: #fddaa3; /* 글로우 하이라이트 */
+  --gold-300: #f1ce6d;
+  --gold-400: #dcbc70;
+  --gold-500: #d4a855; /* 다크 테마 기본 골드 */
+  --gold-600: #c39853; /* 시안 평균값 */
+  --gold-700: #a67c2e;
+  --gold-800: #8a6320; /* 라이트 테마 기본 골드 (본문 대비 4.9:1) */
+  --gold-900: #6b4c17;
+  --gold-rgb-dark: 212, 168, 85;
+  --gold-rgb-light: 138, 99, 32;
+
+  /* 중립 */
+  --neutral-0: #ffffff;
+  --neutral-50: #f7f5f0; /* 웜 오프화이트 */
+  --neutral-100: #efeae0;
+  --neutral-400: #9a9a9a;
+  --neutral-450: #858585;
+  --neutral-500: #808080;
+  --neutral-550: #6b6b6b;
+  --neutral-600: #5f5f5f;
+  --neutral-800: #2b2218;
+  --neutral-880: #1a1611;
+  --neutral-900: #141414;
+  --neutral-920: #111111;
+  --neutral-950: #0b0b0b;
+
+  /* 간격 — 4pt 스케일 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* 반경 */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-pill: 999px;
+
+  /* 타이포 */
+  --font-body: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo",
+    "Malgun Gothic", system-ui, sans-serif;
+  --font-display: Montserrat, "Helvetica Neue", Arial, sans-serif;
+
+  --text-2xs: 10px;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-base: 13px;
+  --text-md: 14px;
+  --text-lg: 15px;
+  --text-xl: 27px;
+  --text-2xl: 29px;
+
+  --tracking-tight: -0.01em;
+  --tracking-wide: 0.1em;
+  --tracking-wider: 0.14em;
+  --tracking-widest: 0.28em;
+  --tracking-logo: 0.2em;
+
+  --leading-body: 1.7;
+
+  /* 레이아웃 */
+  --card-max-width: 480px;
+  --tap-target: 44px;
+
+  /* 모션 */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease: cubic-bezier(0.2, 0, 0.2, 1);
+}
