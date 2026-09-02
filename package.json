@@ -1,5 +1,5 @@
 {
-  "name": "mobile-business-card",
+  "name": "corelink-mobile",
   "version": "0.1.0",
   "description": "강지명 (Corelink) 모바일 명함",
   "scripts": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ji-myung/mobile-business-card.git"
+    "url": "git+https://github.com/ji-myung/corelink-mobile.git"
   },
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/ji-myung/mobile-business-card/issues"
+    "url": "https://github.com/ji-myung/corelink-mobile/issues"
   },
-  "homepage": "https://github.com/ji-myung/mobile-business-card#readme",
+  "homepage": "https://github.com/ji-myung/corelink-mobile#readme",
   "devDependencies": {
     "@types/node": "^26.4.1",
     "@types/qrcode": "^1.5.6",

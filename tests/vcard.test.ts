@@ -15,7 +15,7 @@ const base: Profile = {
   youtube: '',
   services: [],
   portfolio: [],
-  siteUrl: 'https://ji-myung.github.io/mobile-business-card/',
+  siteUrl: 'https://ji-myung.github.io/corelink-mobile/',
 }
 
 const lines = (p: Profile) => buildVCard(p).split('\r\n')
@@ -55,7 +55,7 @@ describe('buildVCard', () => {
   })
 
   it('명함 주소를 URL 로 넣는다', () => {
-    expect(lines(base)).toContain('URL:https://ji-myung.github.io/mobile-business-card/')
+    expect(lines(base)).toContain('URL:https://ji-myung.github.io/corelink-mobile/')
   })
 
   it('홈페이지가 비어 있으면 그 줄을 만들지 않는다', () => {
@@ -65,7 +65,7 @@ describe('buildVCard', () => {
   it('홈페이지가 있으면 명함 주소와 함께 넣는다', () => {
     const l = lines({ ...base, website: 'https://corelink.kr' })
     expect(l).toContain('URL:https://corelink.kr')
-    expect(l).toContain('URL:https://ji-myung.github.io/mobile-business-card/')
+    expect(l).toContain('URL:https://ji-myung.github.io/corelink-mobile/')
   })
 
   it('제공 서비스를 NOTE 로 요약한다', () => {

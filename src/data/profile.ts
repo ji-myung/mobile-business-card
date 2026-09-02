@@ -47,7 +47,7 @@ export const profile: Profile = {
   youtube: '',
 
   services: [
-    { label: '병원 마케팅', icon: 'cross' },
+    { label: '병원 마케팅', icon: 'stethoscope' },
     { label: '숏폼 컨텐츠', icon: 'play' },
     { label: '방송 출연자 협업', icon: 'users' },
     { label: '협찬', icon: 'gift' },
@@ -58,5 +58,5 @@ export const profile: Profile = {
 
   portfolio: [],
 
-  siteUrl: 'https://ji-myung.github.io/mobile-business-card/',
+  siteUrl: 'https://ji-myung.github.io/corelink-mobile/',
 }

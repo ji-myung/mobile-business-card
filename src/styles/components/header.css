@@ -13,9 +13,12 @@
   white-space: nowrap;
 }
 
-/* E 를 대문자 높이에 맞춰 baseline 위에 세운다. 다른 글자와 세로 크기가 같아진다. */
+/* E 를 대문자 높이에 맞춰 baseline 위에 세운다.
+   em 으로 잡아야 글꼴 크기가 달라져도 옆 글자와 위아래가 맞는다. */
 .c-logo__e {
   display: inline;
+  width: 0.63em;
+  height: 0.7em;
   vertical-align: baseline;
   margin-right: var(--tracking-logo);
   fill: var(--color-accent);

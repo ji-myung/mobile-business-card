@@ -2,7 +2,7 @@
 
 블랙 & 골드 톤의 모바일 최적화 디지털 명함. GitHub Pages 로 서비스한다.
 
-**라이브:** https://ji-myung.github.io/mobile-business-card/
+**라이브:** https://ji-myung.github.io/corelink-mobile/
 
 ## 기능
 

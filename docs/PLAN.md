@@ -1,4 +1,4 @@
-# 모바일 명함 (mobile-business-card) 프로젝트 계획서
+# 모바일 명함 (corelink-mobile) 프로젝트 계획서
 
 ## Context
 
@@ -11,7 +11,7 @@
 
 | 항목 | 결정 |
 |---|---|
-| 호스팅 | GitHub Pages. 저장소를 **public 전환** (무료 플랜은 public만 Pages 가능). URL `https://ji-myung.github.io/mobile-business-card/` |
+| 호스팅 | GitHub Pages. 저장소를 **public 전환** (무료 플랜은 public만 Pages 가능). URL `https://ji-myung.github.io/corelink-mobile/` |
 | 범위 | 강지명 1인용 |
 | 기술 스택 | **Vite + TypeScript + 바닐라 DOM** (프레임워크 없음), vitest, GitHub Actions 배포 |
 | 회사명 / 이메일 | Corelink / `corelink.mail@gmail.com` (시안의 corelink.kr 주소는 사용 안 함) |
@@ -27,7 +27,7 @@
 ## 사전 조사 요약
 
 - 로컬: 빈 디렉토리, git 미초기화. Node 24.18 / npm 11 / gh 2.98 (ji-myung 로그인, repo·workflow 스코프)
-- 원격: `ji-myung/mobile-business-card` PRIVATE, main, `LICENSE`(MIT) 1개 파일, Pages 미설정
+- 원격: `ji-myung/corelink-mobile` PRIVATE, main, `LICENSE`(MIT) 1개 파일, Pages 미설정
 - 참고 오픈소스: arpixnet/digital-business-card(Nuxt, vCard/QR/Share/PWA), GrigoryKovalev/online-business-card(정적, Pages). 공통 패턴 = **데이터 파일 1개로 콘텐츠 관리**
 - **iOS Safari vCard**: JS Blob 다운로드는 iOS 13+에서 미리보기로 열려 저장 경로가 숨음. **정적 `.vcf` 파일을 `<a href>`로 직접 링크**(download 속성 없음)가 iOS(연락처 추가 시트)/Android(다운로드→가져오기) 모두 가장 안정적
 - **카카오 상담**: `https://pf.kakao.com/_채널ID/chat` 단순 링크. SDK 불필요
@@ -38,7 +38,7 @@
 ### 파일 구조
 
 ```
-mobile-business-card/
+corelink-mobile/
 ├── index.html                  # 셸. <html data-theme="dark">, 폰트 링크, #app
 ├── public/
 │   ├── favicon.svg
@@ -79,7 +79,7 @@ mobile-business-card/
 │   └── PLAN.md                 # 이 계획서 사본 (저장소에 보존)
 ├── externals/                  # 디자인 시안 (참고용, 커밋)
 ├── .github/workflows/deploy.yml
-├── vite.config.ts              # base: '/mobile-business-card/'
+├── vite.config.ts              # base: '/corelink-mobile/'
 ├── tsconfig.json, package.json, .gitignore
 └── CLAUDE.md                   # 콘텐츠 수정 = profile.ts, 디자인 수정 = tokens/themes 규칙
 ```
@@ -151,11 +151,11 @@ export interface Profile {
 ### 배포
 
 - `.github/workflows/deploy.yml`: `push main` → `npm ci` → `npm test` → `npm run build` → `actions/upload-pages-artifact`(dist) → `actions/deploy-pages`
-- `vite.config.ts` `base: '/mobile-business-card/'`
+- `vite.config.ts` `base: '/corelink-mobile/'`
 - 저장소 설정(gh CLI, 승인 후 실행):
   ```
-  gh repo edit ji-myung/mobile-business-card --visibility public --accept-visibility-change-consequences
-  gh api -X POST repos/ji-myung/mobile-business-card/pages -f build_type=workflow
+  gh repo edit ji-myung/corelink-mobile --visibility public --accept-visibility-change-consequences
+  gh api -X POST repos/ji-myung/corelink-mobile/pages -f build_type=workflow
   ```
 
 ## 구현 단계 (각 단계 검증 기준 포함)

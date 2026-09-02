@@ -56,6 +56,7 @@ const PATHS = {
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/>',
   moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
   image: '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.6-4.6a2 2 0 0 0-2.8 0L3 21"/>',
+  stethoscope: '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
   arrow: '<path d="M7 17 17 7"/><path d="M9 7h8v8"/>',
 }
 
@@ -64,15 +65,11 @@ const MONO = 'Montserrat, "Helvetica Neue", Arial, sans-serif'
 const icon = (name, size, color, sw = 1.5) =>
   `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; display: block">${PATHS[name]}</svg>`
 
-/* 로고. E 는 SVG 로 그려 baseline 에 올린다 — 다른 글자와 세로 크기가 정확히 같다.
-   Montserrat 대문자 높이는 0.7em 이므로 막대 묶음 높이도 0.7em 으로 맞춘다. */
-function logo(t, size) {
-  const cap = Math.round(size * 0.7)
-  const bar = Math.max(2, Math.round(cap / 6.3))
-  const w = Math.round(size * 0.63)
-  const mid = Math.round((cap - bar) / 2)
-  return `<span style="font-family: ${MONO}; font-size: ${size}px; font-weight: 300; letter-spacing: 0.2em; line-height: 1; color: ${t.text}; white-space: nowrap">COR<svg width="${w}" height="${cap}" viewBox="0 0 ${w} ${cap}" style="display: inline; vertical-align: baseline; margin-right: 0.2em"><rect width="${w}" height="${bar}" y="0" fill="${t.accent}"/><rect width="${w}" height="${bar}" y="${mid}" fill="${t.accent}"/><rect width="${w}" height="${bar}" y="${cap - bar}" fill="${t.accent}"/></svg>LINK</span>`
-}
+/* 로고. E 는 SVG 막대 3개.
+   px 로 계산하면 반올림 때문에 막대 간격이 어긋난다. viewBox 안에서 비율을 고정하고
+   바깥 크기는 em 으로 준다 — 글꼴 크기가 얼마든 옆 글자와 위아래가 맞는다. */
+const logo = (t, size) =>
+  `<span style="font-family: ${MONO}; font-size: ${size}px; font-weight: 300; letter-spacing: 0.2em; line-height: 1; color: ${t.text}; white-space: nowrap">COR<svg viewBox="0 0 126 140" style="display: inline; width: 0.63em; height: 0.7em; vertical-align: baseline; margin-right: 0.2em; fill: ${t.accent}"><rect width="126" height="22" y="0"/><rect width="126" height="22" y="59"/><rect width="126" height="22" y="118"/></svg>LINK</span>`
 
 /* 골드 글로우 라인. 시안 대비 효과를 절반으로 낮췄다. */
 function glowRule(t, margin) {
@@ -126,7 +123,7 @@ const actionBar = (t) => {
 }
 
 const SERVICES = [
-  ['cross', '병원 마케팅'], ['play', '숏폼 컨텐츠'], ['users', '방송 출연자 협업'],
+  ['stethoscope', '병원 마케팅'], ['play', '숏폼 컨텐츠'], ['users', '방송 출연자 협업'],
   ['gift', '협찬'], ['pen', '블로그'], ['sparkles', '체험단'], ['news', '기자단'],
 ]
 const NAME = '강지명'

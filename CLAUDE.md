@@ -1,4 +1,4 @@
-# mobile-business-card
+# corelink-mobile
 
 강지명 (Corelink · Founder & Content Director) 모바일 명함.
 Vite + TypeScript + 바닐라 DOM. GitHub Pages 배포.

@@ -4,7 +4,7 @@ import { qrPlugin } from './scripts/vite-plugin-qr'
 import { vcardPlugin } from './scripts/vite-plugin-vcard'
 
 export default defineConfig({
-  base: '/mobile-business-card/',
+  base: '/corelink-mobile/',
   plugins: [vcardPlugin(), qrPlugin()],
   build: { target: 'es2022' },
   test: {
